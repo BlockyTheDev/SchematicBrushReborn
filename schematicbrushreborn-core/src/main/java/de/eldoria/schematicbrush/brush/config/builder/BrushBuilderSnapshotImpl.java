@@ -32,7 +32,10 @@ public class BrushBuilderSnapshotImpl implements BrushBuilderSnapshot {
     public BrushBuilderSnapshotImpl(Map<String, Object> objectMap) {
         var map = SerializationUtil.mapOf(objectMap);
         schematicSets = map.getValue("schematicSets");
-        placementModifier = map.getMap("placementModifier", (key, v) -> SchematicBrushRebornImpl.settingsRegistry().getPlacementModifier(key).map(Registration::modifier).orElse(null));
+        placementModifier = map.getMap("placementModifier", (key, v) -> SchematicBrushRebornImpl.settingsRegistry()
+                .getPlacementModifier(key)
+                .map(Registration::modifier)
+                .orElse(null));
         placementModifier.entrySet().removeIf(entry -> entry.getValue() == null);
     }
 

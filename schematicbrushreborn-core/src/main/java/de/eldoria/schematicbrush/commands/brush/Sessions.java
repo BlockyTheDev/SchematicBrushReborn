@@ -40,12 +40,12 @@ public class Sessions {
     private final ILocalizer localizer;
     private final Map<UUID, BrushBuilder> session = new HashMap<>();
 
-    public Sessions(Plugin plugin, BrushSettingsRegistry registry, SchematicRegistry schematicRegistry, MessageBlocker messageBlocker, ILocalizer localizer) {
+    public Sessions(Plugin plugin, BrushSettingsRegistry registry, SchematicRegistry schematicRegistry, MessageBlocker messageBlocker) {
         this.registry = registry;
         audiences = BukkitAudiences.create(plugin);
         this.schematicRegistry = schematicRegistry;
         this.messageBlocker = messageBlocker;
-        this.localizer = localizer;
+        this.localizer = ILocalizer.getPluginLocalizer(plugin);
     }
 
     public BrushBuilder getOrCreateSession(Player player) {
