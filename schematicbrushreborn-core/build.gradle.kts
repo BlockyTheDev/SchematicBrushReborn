@@ -56,7 +56,7 @@ tasks {
     }
 
     shadowJar {
-        //relocate("de.eldoria.eldoutilities", shadebase + "eldoutilities")
+        relocate("de.eldoria.eldoutilities", shadebase + "eldoutilities")
         relocate("de.eldoria.messageblocker", shadebase + "messageblocker")
         relocate("net.kyori", shadebase + "kyori")
         mergeServiceFiles()
